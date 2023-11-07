@@ -3,7 +3,7 @@ const dungeonSchema = require('../models/dungeon.model')
 
 exports.create = (req, res, next) => {
   req.body.content = req.body.dungeon
-  console.log('creating dungeon:', req.body);
+  // console.log('creating dungeon:', req.body);
   dungeonSchema.create(req.body, (error, data) => {
     if (error) {
       return next(error)
@@ -24,11 +24,12 @@ exports.findAll = (req, res, next) => {
 };
 
 exports.findOne = (req, res, next) => {
-  console.log('get dungeon ', req.params.id);
+  // console.log('get dungeon ', req.params.id);
   dungeonSchema.find({'_id': req.params.id}, (error, data) => {
     if (error) {
       return next(error)
     } else {
+      // console.log('success', data);
       res.json(data)
     }
   })
@@ -36,15 +37,16 @@ exports.findOne = (req, res, next) => {
 
 exports.update = (req, res, next) => {
   req.body.content = req.body.dungeon
-  console.log('updating dungeon:', req.body);
+  // console.log('updating dungeon:', req.body.dungeon);
+  // console.log('updating dungeon:', req.body.dungeon.id);
   dungeonSchema.findOneAndUpdate({'_id': req.params.id}, {
     $set: req.body
   }, (error, data) => {
     if (error) {
       return next(error);
     } else {
+      console.log('dungeon ', req.params.id, 'successfully updated');
       res.json(data)
-      console.log('User updated successfully !')
     }
   })
 };

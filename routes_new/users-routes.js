@@ -1,6 +1,5 @@
 module.exports = app => {
     const User = require("../controllers/user.controller");
-    console.log('User is ', User);
     var router = require("express").Router();
     // Create a new UserImage
     router.post("/", User.create);

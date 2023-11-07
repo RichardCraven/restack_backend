@@ -41,7 +41,8 @@ exports.update = (req, res) => {
     $set: req.body
   }, (error, data) => {
     if (error) {
-      return next(error);
+      console.log('error:', error)
+      return error;
     } else {
       res.json(data)
       console.log('User updated successfully !')

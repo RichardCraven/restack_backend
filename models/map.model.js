@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 let mapSchema = new Schema({
   content: {
     type: String
-  }
+  },
+  // createdAt: { type: Date, default: Date.now }
 }, {
     collection: 'maps'
 })

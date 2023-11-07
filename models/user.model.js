@@ -13,7 +13,8 @@ let userSchema = new Schema({
   },
   metadata: {
     type: String
-  }
+  },
+  // createdAt: { type: Date, default: Date.now }
 }, {
     collection: 'users'
 })
